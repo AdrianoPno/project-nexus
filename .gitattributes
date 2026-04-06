@@ -1,0 +1,9 @@
+# Forçar que arquivos de texto sempre usem LF no repositório
+* text=auto eol=lf
+
+# Garantir que arquivos específicos sigam o padrão
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.js text eol=lf
+*.css text eol=lf
