@@ -1,3 +1,12 @@
+export interface Offer {
+  id: string;
+  title: string;
+  price: string;
+  period: string;
+  features: string[];
+  isHighlight?: boolean;
+}
+
 export type CMSComponentType = "hero-banner" | "offer-grid";
 
 export interface CMSComponentProps {

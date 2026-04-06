@@ -1,4 +1,3 @@
-// src/app/page.tsx
 import { CMSManager } from "@/components/cms/CMSManager";
 import { CMSPageData } from "@/interfaces/cms.interface";
 
@@ -20,10 +19,40 @@ const mockPageData: CMSPageData = {
       id: "offers-001",
       resourceType: "offer-grid",
       props: {
+        title: "Nossas Melhores Ofertas",
         offers: [
-          { id: "1", name: "Plano Fibra 500 Mega" },
-          { id: "2", name: "Plano Mobile 100GB" },
-          { id: "3", name: "Combo Streaming+" },
+          {
+            id: "1",
+            title: "Plano Fibra 500 Mega",
+            price: "99,90",
+            period: "mês",
+            isHighlight: true,
+            features: [
+              "Wi-fi 6 incluso",
+              "Instalação grátis",
+              "Apps Vivo Música",
+            ],
+          },
+          {
+            id: "2",
+            title: "Plano Mobile 100GB",
+            price: "129,90",
+            period: "mês",
+            isHighlight: false,
+            features: [
+              "Roaming Internacional",
+              "WhatsApp Ilimitado",
+              "5G liberado",
+            ],
+          },
+          {
+            id: "3",
+            title: "Combo Streaming+",
+            price: "159,90",
+            period: "mês",
+            isHighlight: false,
+            features: ["Disney+ e Star+", "Fibra 300 Mega", "Suporte 24h"],
+          },
         ],
       },
     },
