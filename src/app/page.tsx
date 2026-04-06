@@ -1,25 +1,29 @@
+// src/app/page.tsx
 import { CMSManager } from "@/components/cms/CMSManager";
 import { CMSPageData } from "@/interfaces/cms.interface";
 
-// Mock de dados que viriam de uma API
 const mockPageData: CMSPageData = {
   title: "Home Page Nexus",
   components: [
     {
-      id: "1",
+      id: "banner-001",
       resourceType: "hero-banner",
       props: {
-        title: "Bem-vindo ao Project Nexus",
-        description: "Simulando AEM Headless Architecture",
+        title: "O Futuro do Atendimento Digital",
+        description:
+          "Integração de CMS de alta performance para operações de larga escala.",
+        ctaText: "Começar Agora",
+        variant: "primary",
       },
     },
     {
-      id: "2",
+      id: "offers-001",
       resourceType: "offer-grid",
       props: {
         offers: [
-          { id: "a", name: "Plano 100GB" },
-          { id: "b", name: "Plano Unlimited" },
+          { id: "1", name: "Plano Fibra 500 Mega" },
+          { id: "2", name: "Plano Mobile 100GB" },
+          { id: "3", name: "Combo Streaming+" },
         ],
       },
     },
@@ -28,7 +32,7 @@ const mockPageData: CMSPageData = {
 
 export default function Home() {
   return (
-    <main>
+    <main className="min-h-screen bg-white">
       <CMSManager components={mockPageData.components} />
     </main>
   );
