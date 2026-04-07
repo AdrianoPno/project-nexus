@@ -5,11 +5,13 @@ import {
 } from "@/interfaces/cms.interface";
 import { HeroBanner } from "./HeroBanner";
 import { OfferGrid } from "./OfferGrid";
+import { FAQAccordion } from "./FAQAccordion";
 
 // Registro de componentes reais
 const COMPONENTS_MAP: Record<CMSComponentType, React.FC<any>> = {
   "hero-banner": HeroBanner,
   "offer-grid": OfferGrid,
+  "faq-accordion": FAQAccordion,
 };
 
 export const CMSManager = ({
@@ -29,7 +31,6 @@ export const CMSManager = ({
           return null;
         }
 
-        // Passamos o ID e desestruturamos as props que vêm do CMS
         return <Component key={component.id} {...component.props} />;
       })}
     </>

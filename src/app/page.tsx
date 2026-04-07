@@ -56,6 +56,25 @@ const mockPageData: CMSPageData = {
         ],
       },
     },
+    {
+      id: "faq-001",
+      resourceType: "faq-accordion",
+      props: {
+        title: "Dúvidas Frequentes",
+        items: [
+          {
+            question: "Como funciona a instalação?",
+            answer:
+              "Nossa equipe entra em contato em até 24h após a compra para agendar a visita técnica.",
+          },
+          {
+            question: "Tenho fidelidade no plano?",
+            answer:
+              "Os planos de fibra possuem fidelidade de 12 meses com benefícios exclusivos.",
+          },
+        ],
+      },
+    },
   ],
 };
 

@@ -7,7 +7,7 @@ export interface Offer {
   isHighlight?: boolean;
 }
 
-export type CMSComponentType = "hero-banner" | "offer-grid";
+export type CMSComponentType = "hero-banner" | "offer-grid" | "faq-accordion";
 
 export interface CMSComponentProps {
   id: string;
@@ -18,4 +18,14 @@ export interface CMSComponentProps {
 export interface CMSPageData {
   title: string;
   components: CMSComponentProps[];
+}
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface FAQProps {
+  title?: string;
+  items: FAQItem[];
 }
