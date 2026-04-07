@@ -29,3 +29,12 @@ export interface FAQProps {
   title?: string;
   items: FAQItem[];
 }
+
+export interface NavLink {
+  label: string;
+  href: string;
+}
+
+export interface HeaderProps {
+  links: NavLink[];
+}
