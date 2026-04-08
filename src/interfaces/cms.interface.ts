@@ -4,7 +4,7 @@ export interface Offer {
   price: string;
   period: string;
   features: string[];
-  isHighlight?: boolean;
+  isHighlighter?: boolean;
 }
 
 export type CMSComponentType = "hero-banner" | "offer-grid" | "faq-accordion";

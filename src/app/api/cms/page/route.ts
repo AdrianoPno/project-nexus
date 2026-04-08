@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
+  // Simula latência de rede (1.2s) para testarmos o loading.tsx
   await new Promise((resolve) => setTimeout(resolve, 1200));
 
   const pageData = [
@@ -24,12 +25,13 @@ export async function GET() {
             title: "Empresarial 500",
             price: "149,90",
             features: ["IP Fixo", "Suporte 24h", "Cloud Backup"],
-            isHighlight: true,
+            isHighlighter: true, // Ajustado para bater com a prop do componente
           },
           {
             title: "Empresarial 300",
             price: "99,90",
             features: ["Wi-fi Business"],
+            isHighlighter: false,
           },
         ],
       },

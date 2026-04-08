@@ -20,7 +20,7 @@ export const OfferGrid = ({ title, offers }: OfferGridProps) => {
             key={offer.id || `offer-${index}`}
             className="relative bg-white border border-gray-100 rounded-3xl p-8 shadow-xl flex flex-col h-full hover:scale-[1.02] transition-transform duration-300"
           >
-            {offer.isHighlight && (
+            {offer.isHighlighter && (
               <span className="absolute -top-4 left-8 bg-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase">
                 Mais Vendido
               </span>

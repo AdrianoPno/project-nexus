@@ -1,18 +1,27 @@
-import { CMSManager } from "@/components/cms/CMSManager";
+// src/app/page.tsx
+import CMSManager from "@/components/cms/CMSManager"; // Caminho corrigido
 
 async function getPageData() {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-  const res = await fetch(`${baseUrl}/api/cms/page`, { cache: "no-store" });
-  if (!res.ok) throw new Error("Falha ao carregar CMS");
-  return res.json();
+  try {
+    const res = await fetch("http://127.0.0.1:3000/api/cms/page", {
+      // Usamos apenas o revalidate: 0 dentro do objeto next
+      next: { revalidate: 0 },
+    });
+
+    if (!res.ok) return [];
+    return await res.json();
+  } catch (error) {
+    console.error("Erro ao buscar dados do CMS:", error);
+    return [];
+  }
 }
 
 export default async function Home() {
-  const data = await getPageData();
+  const componentsData = await getPageData();
 
   return (
-    <main className="relative">
-      <CMSManager components={data} />
+    <main className="min-h-screen pt-20">
+      <CMSManager components={componentsData || []} />
     </main>
   );
 }
