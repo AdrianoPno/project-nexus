@@ -14,8 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br" className="scroll-smooth">
-      <body>
+      <body className="antialiased">
         <Header />
+        {/* Remova paddings excessivos daqui se houver */}
         {children}
       </body>
     </html>

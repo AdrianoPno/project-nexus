@@ -15,7 +15,7 @@ export const Header = () => {
   const navLinks = [
     { label: "Início", href: "#" },
     { label: "Ofertas", href: "#offers-001" },
-    { label: "FAQ", href: "#faq-nx-01" },
+    { label: "FAQ", href: "#faq-001" },
   ];
 
   const headerStyles = isScrolled
