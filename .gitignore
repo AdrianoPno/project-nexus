@@ -40,3 +40,16 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Dependências do Monorepo
+node_modules/
+nexus-api/node_modules/
+nexus-api/dist/
+
+# Logs e builds
+.next/
+dist/
+nexus-api/.env
+
+*.sqlite
+nexus-api/database.sqlite
