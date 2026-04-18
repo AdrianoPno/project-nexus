@@ -1,25 +1,35 @@
-import React from "react";
+"use client";
+
+import React, { ComponentType } from "react";
+import dynamic from "next/dynamic";
 import {
   CMSComponentProps,
   CMSComponentType,
 } from "@/interfaces/cms.interface";
+
+// 1. Re-declarando a interface (ou importe se estiver no arquivo de interfaces)
+interface CMSManagerProps {
+  components: CMSComponentProps[];
+}
+
+// 2. Importação Dinâmica do OfferGrid
+const OfferGrid = dynamic(() => import("./OfferGrid"), {
+  ssr: false,
+  loading: () => <div className="h-64 bg-gray-50 animate-pulse rounded-3xl" />,
+});
+
+// Importações estáticas dos outros
 import { HeroBanner } from "./HeroBanner";
-import { OfferGrid } from "./OfferGrid";
 import { FAQAccordion } from "./FAQAccordion";
 
-// Registro de componentes mapeados pelo resourceType do AEM/BFF
-const COMPONENTS_MAP: Record<CMSComponentType, React.FC<any>> = {
+// 3. Ajuste no Mapa: Usamos ComponentType<any> para aceitar componentes dinâmicos e estáticos
+const COMPONENTS_MAP: Record<CMSComponentType, ComponentType<any>> = {
   "hero-banner": HeroBanner,
   "offer-grid": OfferGrid,
   "faq-accordion": FAQAccordion,
 };
 
-interface CMSManagerProps {
-  components: CMSComponentProps[];
-}
-
 const CMSManager = ({ components }: CMSManagerProps) => {
-  // Fallback de segurança: se components for undefined ou não for array
   if (!Array.isArray(components)) {
     console.error("[CMSManager] A prop 'components' deve ser um array.");
     return null;
@@ -37,12 +47,10 @@ const CMSManager = ({ components }: CMSManagerProps) => {
           return null;
         }
 
-        // Passamos o id como key e espalhamos as props
         return <Component key={component.id} {...component.props} />;
       })}
     </div>
   );
 };
 
-// Exportamos apenas o Default para evitar ambiguidade no Next.js
 export default CMSManager;
